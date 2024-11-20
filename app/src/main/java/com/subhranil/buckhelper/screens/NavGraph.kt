@@ -1,9 +1,9 @@
 package com.subhranil.buckhelper.screens
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.NavHostController
 import com.subhranil.buckhelper.BuckViewModel
 
 @Composable
@@ -11,7 +11,11 @@ fun SetupNavGraph(
     navController: NavHostController,
     viewModel: BuckViewModel
 ) {
-    NavHost(navController = navController, startDestination = Screen.SelectBullet.route) {
+    NavHost(
+        navController = navController,
+        startDestination = Screen.SelectBullet.route
+//        startDestination = Screen.AddBurnerInfo.route
+    ) {
         composable(Screen.SelectBullet.route) {
             SelectBullet(navController, viewModel)
         }
@@ -19,6 +23,11 @@ fun SetupNavGraph(
             Screen.Match.route,
         ) {
             MatchScreen(navController, viewModel)
+        }
+        composable(
+            Screen.AddBurnerInfo.route,
+        ) {
+            AddBurnerInfoScreen(navController, viewModel)
         }
     }
 }

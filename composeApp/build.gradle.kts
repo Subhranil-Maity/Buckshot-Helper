@@ -97,6 +97,13 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.subhranil.buckhelper"
             packageVersion = "1.0.0"
+
+            windows{
+                iconFile.set(project.file("icon.ico"))
+            }
+            linux{
+                iconFile.set(project.file("icon.png"))
+            }
         }
     }
 }
